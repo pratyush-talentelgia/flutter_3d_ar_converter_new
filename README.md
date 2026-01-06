@@ -1,6 +1,6 @@
 # Flutter 3D AR Converter New
 
-[![GitHub](https://img.shields.io/badge/GitHub-pratyush-talentelgia/flutter_3d_ar_converter_new-blue.svg)](https://github.com/pratyush-talentelgia/flutter_3d_ar_converter_new)
+[![GitHub](https://img.shields.io/badge/GitHub-pratyush--talentelgia%2Fflutter_3d_ar_converter_new-blue.svg)](https://github.com/pratyush-talentelgia/flutter_3d_ar_converter_new)
 
 A Flutter package for converting 2D images to 3D models with AR visualization capabilities. This package integrates native AR technologies (ARKit for iOS and ARCore for Android) to provide immersive AR experiences. It allows you to:
 
