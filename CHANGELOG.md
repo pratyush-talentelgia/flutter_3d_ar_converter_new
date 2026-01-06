@@ -1,3 +1,6 @@
+## 0.1.4
+* Fixed Android build structure by removing extraneous `android/app` directory and `local.properties`.
+
 ## 0.1.3
 * Explicitly added Android platform support metadata in `pubspec.yaml`.
 

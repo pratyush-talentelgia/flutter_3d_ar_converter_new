@@ -1,0 +1,21 @@
+Running Gradle task 'assembleDebug'...                          
+/Users/mac/AndroidStudioProjects/flutter_3d_ar_converter_new/example/android/app/src/debug/AndroidManifest.xml:23:13-37 Error:
+	Attribute meta-data#com.google.ar.core@value value=(required) from [:flutter_3d_ar_converter_new] AndroidManifest.xml:23:13-37
+	is also present at [:ar_flutter_plugin_updated] AndroidManifest.xml:23:13-37 value=(optional).
+	Suggestion: add 'tools:replace="android:value"' to <meta-data> element at AndroidManifest.xml to override.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:processDebugMainManifest'.
+> Manifest merger failed with multiple errors, see logs
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 3s
+Running Gradle task 'assembleDebug'...                              3.4s
+Gradle task assembleDebug failed with exit code 1
