@@ -1,6 +1,6 @@
 name: flutter_3d_ar_converter_new
 description: "A forked Flutter package of original flutter_3d_ar_converter for converting images to 3D models with AR visualization capabilities."
-version: 0.1.4
+version: 0.1.5
 homepage: https://github.com/pratyush-talentelgia/flutter_3d_ar_converter_new
 
 environment:

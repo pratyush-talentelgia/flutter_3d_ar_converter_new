@@ -1,3 +1,6 @@
+## 0.1.5
+* Updated documentation to clarify mandatory Android Jetifier requirement.
+
 ## 0.1.4
 * Fixed Android build structure by removing extraneous `android/app` directory and `local.properties`.
 

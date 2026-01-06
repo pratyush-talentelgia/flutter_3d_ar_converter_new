@@ -87,6 +87,17 @@ dependencies {
 }
 ```
 
+### Important: Android Configuration
+
+This plugin requires **Jetifier** to be enabled because some of its AR dependencies still rely on the Android Support Library. You **must** add the following to your `android/gradle.properties` file:
+
+```properties
+android.useAndroidX=true
+android.enableJetifier=true
+```
+
+If you don't add this, your build will fail with "Duplicate class" errors.
+
 ## Usage
 
 ### Initialize the Package
