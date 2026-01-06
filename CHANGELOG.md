@@ -1,3 +1,10 @@
+## 0.1.2
+* Updated dependencies to support Flutter 3.7+
+* Fixed Android build errors (JVM target, AGP version)
+* Replaced `ar_flutter_plugin` with `ar_flutter_plugin_updated`
+* Fixed runtime crashes in AR initialization and model loading
+* Renamed package to `flutter_3d_ar_converter_new` for publication
+
 ## 0.1.1 
 
 ## Bug Fixes

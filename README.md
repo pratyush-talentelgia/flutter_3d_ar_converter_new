@@ -1,6 +1,6 @@
-# Flutter 3D AR Converter
+# Flutter 3D AR Converter New
 
-[![GitHub](https://img.shields.io/badge/GitHub-draz26648/flutter_3d_ar_converter-blue.svg)](https://github.com/draz26648/flutter_3d_ar_converter)
+[![GitHub](https://img.shields.io/badge/GitHub-pratyush-talentelgia/flutter_3d_ar_converter_new-blue.svg)](https://github.com/pratyush-talentelgia/flutter_3d_ar_converter_new)
 
 A Flutter package for converting 2D images to 3D models with AR visualization capabilities. This package integrates native AR technologies (ARKit for iOS and ARCore for Android) to provide immersive AR experiences. It allows you to:
 
@@ -34,7 +34,7 @@ Add the package to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_3d_ar_converter: ^0.1.0
+  flutter_3d_ar_converter_new: ^0.1.2
 ```
 
 ### iOS Setup
@@ -92,7 +92,7 @@ dependencies {
 ### Initialize the Package
 
 ```dart
-import 'package:flutter_3d_ar_converter/flutter_3d_ar_converter.dart';
+import 'package:flutter_3d_ar_converter_new/flutter_3d_ar_converter.dart';
 
 // Initialize the package
 final converter = Flutter3dArConverter();

@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter_3d_ar_converter/src/models/model_data.dart';
-import 'package:flutter_3d_ar_converter/src/utils/file_utils.dart';
+import 'package:flutter_3d_ar_converter_new/src/models/model_data.dart';
+import 'package:flutter_3d_ar_converter_new/src/utils/file_utils.dart';
 
 /// Class responsible for converting 2D images to 3D models
 class ImageTo3DConverter {

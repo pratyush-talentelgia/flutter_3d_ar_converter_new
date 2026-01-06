@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_3d_ar_converter/flutter_3d_ar_converter.dart';
+import 'package:flutter_3d_ar_converter_new/flutter_3d_ar_converter_new.dart';
 
 void main() {
   test('Flutter3dArConverter can be instantiated', () {

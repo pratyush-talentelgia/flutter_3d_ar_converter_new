@@ -6,10 +6,10 @@
 
 #import "GeneratedPluginRegistrant.h"
 
-#if __has_include(<ar_flutter_plugin/ArFlutterPlugin.h>)
-#import <ar_flutter_plugin/ArFlutterPlugin.h>
+#if __has_include(<ar_flutter_plugin_updated/ArFlutterPlugin.h>)
+#import <ar_flutter_plugin_updated/ArFlutterPlugin.h>
 #else
-@import ar_flutter_plugin;
+@import ar_flutter_plugin_updated;
 #endif
 
 #if __has_include(<arkit_plugin/ArkitPlugin.h>)

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_3d_ar_converter/flutter_3d_ar_converter.dart';
+import 'package:flutter_3d_ar_converter_new/flutter_3d_ar_converter_new.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 void main() {

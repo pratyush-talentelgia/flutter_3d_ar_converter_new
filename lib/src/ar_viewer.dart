@@ -1,15 +1,15 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:ar_flutter_plugin/ar_flutter_plugin.dart';
-import 'package:ar_flutter_plugin/datatypes/node_types.dart';
-import 'package:ar_flutter_plugin/managers/ar_anchor_manager.dart';
-import 'package:ar_flutter_plugin/managers/ar_location_manager.dart';
-import 'package:ar_flutter_plugin/managers/ar_object_manager.dart';
-import 'package:ar_flutter_plugin/managers/ar_session_manager.dart';
-import 'package:ar_flutter_plugin/models/ar_node.dart';
-import 'package:ar_flutter_plugin/datatypes/config_planedetection.dart';
+import 'package:ar_flutter_plugin_updated/ar_flutter_plugin.dart';
+import 'package:ar_flutter_plugin_updated/datatypes/node_types.dart';
+import 'package:ar_flutter_plugin_updated/managers/ar_anchor_manager.dart';
+import 'package:ar_flutter_plugin_updated/managers/ar_location_manager.dart';
+import 'package:ar_flutter_plugin_updated/managers/ar_object_manager.dart';
+import 'package:ar_flutter_plugin_updated/managers/ar_session_manager.dart';
+import 'package:ar_flutter_plugin_updated/models/ar_node.dart';
+import 'package:ar_flutter_plugin_updated/datatypes/config_planedetection.dart';
 import 'package:vector_math/vector_math_64.dart' hide Colors;
-import 'package:flutter_3d_ar_converter/src/models/model_data.dart';
+import 'package:flutter_3d_ar_converter_new/src/models/model_data.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 /// AR Viewer widget for displaying 3D models in augmented reality
@@ -68,48 +68,7 @@ class ARViewerState extends State<ARViewer> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (arSessionManager == null) return;
-
-    if (state == AppLifecycleState.resumed) {
-      // Resume AR session when app is resumed
-      // Note: ar_flutter_plugin doesn't have direct onResume method
-      // We need to handle this differently
-      _handleSessionResume();
-    } else if (state == AppLifecycleState.paused) {
-      // Pause AR session when app is paused
-      // Note: ar_flutter_plugin doesn't have direct onPause method
-      // We need to handle this differently
-      _handleSessionPause();
-    }
-  }
-
-  /// Handle AR session resume
-  void _handleSessionResume() {
-    try {
-      // For AR Flutter Plugin, we need to reinitialize the session
-      if (isInitialized && arSessionManager != null) {
-        arSessionManager!.onInitialize(
-          showFeaturePoints: true,
-          showPlanes: true,
-          customPlaneTexturePath: "assets/triangle.png",
-          showWorldOrigin: true,
-          handlePans: true,
-          handleRotation: true,
-        );
-      }
-    } catch (e) {
-      debugPrint('Error resuming AR session: $e');
-    }
-  }
-
-  /// Handle AR session pause
-  void _handleSessionPause() {
-    try {
-      // For AR Flutter Plugin, we need to dispose resources when paused
-      // The actual implementation depends on the plugin's capabilities
-      // This is a placeholder for proper implementation
-    } catch (e) {
-      debugPrint('Error pausing AR session: $e');
-    }
+    // The AR Flutter Plugin handles lifecycle internally via the view
   }
 
   /// Request camera permissions
@@ -237,52 +196,45 @@ class ARViewerState extends State<ARViewer> with WidgetsBindingObserver {
     ARObjectManager objectManager,
     ARAnchorManager anchorManager,
     ARLocationManager locationManager,
-  ) {
+  ) async {
     try {
       arSessionManager = sessionManager;
       arObjectManager = objectManager;
       arAnchorManager = anchorManager;
 
-      arSessionManager!
-          .onInitialize(
-            showFeaturePoints: true,
-            showPlanes: true,
-            customPlaneTexturePath: "assets/triangle.png",
-            showWorldOrigin: true,
-            handlePans: true,
-            handleRotation: true,
-          )
-          .then((_) {
-            // AR session initialized successfully
-            arObjectManager!.onInitialize();
+      await arSessionManager!.onInitialize(
+        showFeaturePoints: true,
+        showPlanes: true,
+        showWorldOrigin: true,
+        handlePans: true,
+        handleRotation: true,
+      );
 
-            // Set up callbacks
-            arSessionManager!.onPlaneOrPointTap = _onPlaneOrPointTapped;
+      // AR session initialized successfully
+      arObjectManager!.onInitialize();
 
-            // Set state to initialized after a short delay to allow plane detection to start
-            Future.delayed(const Duration(seconds: 2), () {
-              if (mounted) {
-                setState(() {
-                  isInitialized = true;
-                });
-              }
-            });
+      // Set up callbacks
+      arSessionManager!.onPlaneOrPointTap = _onPlaneOrPointTapped;
 
-            if (widget.onARViewCreated != null) {
-              widget.onARViewCreated!();
-            }
-          })
-          .catchError((error) {
-            setState(() {
-              hasError = true;
-              errorMessage = 'Failed to initialize AR: $error';
-            });
+      // Set state to initialized after a short delay to allow plane detection to start
+      Future.delayed(const Duration(seconds: 2), () {
+        if (mounted) {
+          setState(() {
+            isInitialized = true;
           });
-    } catch (e) {
-      setState(() {
-        hasError = true;
-        errorMessage = 'Error setting up AR: $e';
+        }
       });
+
+      if (widget.onARViewCreated != null) {
+        widget.onARViewCreated!();
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          hasError = true;
+          errorMessage = 'Error setting up AR: $e';
+        });
+      }
     }
   }
 
@@ -339,7 +291,7 @@ class ARViewerState extends State<ARViewer> with WidgetsBindingObserver {
       }
 
       final node = ARNode(
-        type: NodeType.localGLTF2,
+        type: NodeType.fileSystemAppFolderGLB,
         uri: widget.modelData.modelPath,
         scale: Vector3(0.2, 0.2, 0.2),
         position: hitPosition,
@@ -372,7 +324,7 @@ class ARViewerState extends State<ARViewer> with WidgetsBindingObserver {
       }
 
       final node = ARNode(
-        type: NodeType.localGLTF2,
+        type: NodeType.fileSystemAppFolderGLB,
         uri: widget.modelData.modelPath,
         scale: Vector3(0.2, 0.2, 0.2),
         position: Vector3(0, 0, -1.0),
