@@ -1,3 +1,6 @@
+## 0.1.3
+* Explicitly added Android platform support metadata in `pubspec.yaml`.
+
 ## 0.1.2
 * Updated dependencies to support Flutter 3.7+
 * Fixed Android build errors (JVM target, AGP version)

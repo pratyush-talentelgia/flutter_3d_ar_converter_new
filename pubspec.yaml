@@ -1,6 +1,6 @@
 name: flutter_3d_ar_converter_new
 description: "A forked Flutter package of original flutter_3d_ar_converter for converting images to 3D models with AR visualization capabilities."
-version: 0.1.2
+version: 0.1.3
 homepage: https://github.com/pratyush-talentelgia/flutter_3d_ar_converter_new
 
 environment:
@@ -31,6 +31,13 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.example.flutter_3d_ar_converter
+        pluginClass: Flutter3dArConverterPlugin
+      ios:
+        pluginClass: Flutter3dArConverterPlugin
 
   # To add assets to your package, add an assets section, like this:
   # assets:
